@@ -18,7 +18,7 @@ if (event.which == 13 || event.keyCode == 13) { // as the user presses the enter
 };
 function saveToFB(movieName) {
 // this will save data to Firebase
-	firebase.database().ref('movies').set({
+	firebase.database().ref('movies').push({
 		name: movieName
 	});
 };
