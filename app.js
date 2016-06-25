@@ -2,7 +2,7 @@ var config = {
   apiKey: "AIzaSyCCHea2J-5LFjy2mzjQejfF1BRRLmiKark",
   authDomain: "movietest-8510c.firebaseapp.com",
   databaseURL: "https://movietest-8510c.firebaseio.com",
-  storageBucket: "movies",
+  storageBucket: "",
 };
 firebase.initializeApp(config);
 
@@ -18,7 +18,7 @@ if (event.which == 13 || event.keyCode == 13) { // as the user presses the enter
 };
 function saveToFB(movieName) {
 // this will save data to Firebase
-	firebase.database().ref('movies').push({
+	firebase.database().ref('test/123').push({
 		name: movieName
 	});
 };
@@ -30,7 +30,7 @@ function refreshUI(list) {
 	document.getElementById('favMovies').innerHTML = lis;
 };
 // this will get fired on inital load as well as when ever there is a change in the data
-firebase.database().ref('movies').on("value", function(snapshot) {
+firebase.database().ref('test/123').on("value", function(snapshot) {
 	var data = snapshot.val();
 	var list = [];
 	for (var key in data) {
